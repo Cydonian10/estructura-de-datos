@@ -57,14 +57,15 @@ export class MyArray<T> {
    * Agrega elementos al inicio del arreglo
    */
   unshif( item: T ) {
-    for ( let i = 0; i < this.length; i++ ) {
-      this.data[ i ] = this.data[ i + 1 ]
+    for ( let i = this.length; i > 0; i-- ) {
+      this.data[ i ] = this.data[ i - 1 ]
     }
     this.data[ 0 ] = item
+    this.length++
     return this.data
   }
 
-  shiftIndex( index: number ) {
+  private shiftIndex( index: number ) {
     for ( let i = index; i < this.length; i++ ) {
       this.data[ i ] = this.data[ i + 1 ]
     }
